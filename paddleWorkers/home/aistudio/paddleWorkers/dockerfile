@@ -1,0 +1,14 @@
+FROM python:3.7
+RUN  pip install -U pip
+RUN  pip config set global.index-url http://mirrors.aliyun.com/pypi/simple
+RUN  pip config set install.trusted-host mirrors.aliyun.com
+RUN  pip install tensorflow
+RUN  pip install numpy
+RUN  pip install paddlepaddle
+RUN  pip install paddlehub
+RUN  pip install shapely
+RUN  pip install pyclipper
+RUN  pip install flask
+ADD  pdhub.py pdhub.py
+
+CMD ["/bin/sh","-c","python3 pdhub.py"]
